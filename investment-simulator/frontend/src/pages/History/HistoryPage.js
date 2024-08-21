@@ -1,25 +1,23 @@
-// src/pages/HistoryPage.js
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Chart } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, Title, Tooltip, Legend, CategoryScale, LinearScale, PointElement } from 'chart.js';
+import { Chart as ChartJS, LineElement, Title, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineController } from 'chart.js';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import styles from './styles/HistoryPage.module.css';
 import Footer from '../../components/Footer/footer';
 
-ChartJS.register(LineElement, PointElement, Title, Tooltip, Legend, CategoryScale, LinearScale);
+// Registrar todos os controladores necessários
+ChartJS.register(LineElement, PointElement, Title, Tooltip, Legend, CategoryScale, LinearScale, LineController);
 
 const HistoryPage = () => {
   const location = useLocation();
   const [history, setHistory] = useState(() => {
-    // Recupera o histórico armazenado no localStorage ou usa o histórico da localização
     const savedHistory = localStorage.getItem('simulationHistory');
     return savedHistory ? JSON.parse(savedHistory) : location.state?.history || [];
   });
 
   useEffect(() => {
-    // Atualiza o localStorage apenas se o history mudar
     if (location.state?.history) {
       const newHistory = location.state.history;
       setHistory(newHistory);
@@ -38,7 +36,7 @@ const HistoryPage = () => {
       item.finalAmount,
       item.type === 'fixed' ? 'Renda Fixa' : 'Renda Variável'
     ]);
-    
+
     autoTable(doc, {
       startY: 20,
       head: [['Valor Inicial', 'Taxa de Juros (%)', 'Tempo (anos)', 'Valor Final', 'Tipo de Investimento']],
@@ -62,7 +60,7 @@ const HistoryPage = () => {
   };
 
   const getChartData = () => {
-    if (!Array.isArray(history)) {
+    if (history.length === 0) {
       return {
         labels: [],
         datasets: [
@@ -76,10 +74,10 @@ const HistoryPage = () => {
         ],
       };
     }
-
+  
     const labels = history.map((_, index) => `Simulação ${index + 1}`);
     const data = history.map(item => item.finalAmount);
-
+  
     return {
       labels,
       datasets: [
@@ -93,6 +91,8 @@ const HistoryPage = () => {
       ],
     };
   };
+  
+  const chartData = getChartData();
 
   return (
     <div>
@@ -103,7 +103,7 @@ const HistoryPage = () => {
           <button className={`${styles.button} ${styles.exportButton}`} onClick={handleExportCSV}>Exportar CSV</button>
         </div>
         <div className={styles.chart}>
-          <Chart type="line" data={getChartData()} options={{
+          <Chart type="line" data={chartData} options={{
             responsive: true,
             plugins: {
               legend: {
