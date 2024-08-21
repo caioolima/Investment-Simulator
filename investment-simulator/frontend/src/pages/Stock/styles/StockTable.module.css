@@ -1,0 +1,161 @@
+/* src/components/StockTable.module.css */
+
+/* Estilos principais */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  text-align: center;
+  margin: 1.8rem auto;
+}
+
+.table {
+  width: 50%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  margin: auto;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.table:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  background: linear-gradient(135deg, #003366, #004aad);
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 4px solid #004aad;
+}
+
+.header th {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 16px;
+  border-right: 2px solid #004aad;
+  position: relative;
+}
+
+.header th::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.header th:hover::after {
+  width: 100%;
+}
+
+.row {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.row:hover {
+  background: linear-gradient(135deg, #f4f4f4, #ffffff);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cell {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 14px;
+  border-right: 1px solid #e1e1e1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cell:last-child {
+  border-right: none;
+}
+
+.cell:nth-child(1) {
+  font-weight: bold;
+  color: #003366;
+}
+
+.cell:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.cell:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.cell:hover {
+  background-color: #f0f0f0;
+  color: #0056b3;
+}
+
+.noData {
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
+  color: #888888;
+}
+
+.error {
+  color: #d9534f;
+  font-weight: bold;
+  text-align: center;
+}
+
+.loading {
+  font-size: 18px;
+  color: #00aaff;
+  text-align: center;
+}
+
+/* Media Queries */
+
+/* Tablets (768px e abaixo) */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+    margin: 100px auto;
+  }
+
+  .table {
+    width: 100%;
+    overflow-x: auto; /* Permite o scroll horizontal */
+    display: block;
+  }
+
+  .header th, .cell {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile (480px e abaixo) */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .table {
+    width: 100%;
+    overflow-x: auto; /* Permite o scroll horizontal */
+    display: block;
+  }
+
+  .header th, .cell {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 7.8rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  flex: 1; /* Faz o contêiner crescer e ocupar o espaço restante */
+  position: relative;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ced4da;
+  background: #ffffff;
+  font-size: 1.2rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input::placeholder {
+  color: #868e96;
+}
+
+.input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+  outline: none;
+}
+
+.inputFilled {
+  border-color: #0056b3;
+}
+
+.button {
+  margin: 0.7rem auto;
+  background: #0056b3;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background: #004494;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.result {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #002f6c;
+  font-weight: bold;
+}
+
+.error {
+  color: #e03e3e;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.exportButton {
+  background: #007bff;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.exportButton:hover {
+  background: #0056b3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.exportButton:active {
+  background: #004494;
+}

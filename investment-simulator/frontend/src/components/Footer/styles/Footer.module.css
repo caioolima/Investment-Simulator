@@ -1,0 +1,32 @@
+.footer {
+  background-color: #003366; /* Cor de fundo do rodapé */
+  color: #fff; /* Cor do texto */
+  padding: 2rem 3rem; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  border-top: 5px solid #004aad; /* Linha superior para destaque */
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center; /* Centraliza os links */
+  gap: 2rem; /* Espaço entre os links */
+  margin-bottom: 1.5rem; /* Espaço abaixo dos links */
+}
+
+.footerLink {
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado */
+  font-size: 1.2rem; /* Tamanho da fonte dos links */
+  font-weight: 500; /* Peso da fonte dos links */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave */
+}
+
+.footerLink:hover {
+  color: #00ccff; /* Cor dos links no hover */
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.5); /* Efeito de sombra no hover */
+}
+
+.footer p {
+  margin: 0; /* Remove a margem padrão */
+  font-size: 1rem; /* Tamanho da fonte do texto */
+}
