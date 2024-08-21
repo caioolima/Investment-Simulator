@@ -16,7 +16,7 @@ const HomePage = () => {
     <div>
       <div className={styles.container}>
         <section className={styles.heroSection}>
-          <h1 className={styles.heroTitle}>Investment Simulator</h1>
+          <h1 className={styles.heroTitle}>Connecter Invest</h1>
           <p className={styles.heroSubtitle}>
             Simule seus investimentos e acompanhe o mercado financeiro em tempo real com uma interface moderna e fácil de usar.
           </p>
